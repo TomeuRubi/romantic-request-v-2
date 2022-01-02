@@ -7,10 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
     public translate: TranslateService,
-    //private localizationService: LocalizationService,
     private menu: MenuController) {
     this.translate.addLangs(['es', 'en']);
     this.translate.setDefaultLang('es');

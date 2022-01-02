@@ -1,15 +1,15 @@
 {
-    "MENU": {
-        "PLAY": "Jugar",
-        "CONF": "Configuración",
-        "PREF": "Preferencias"
+    "menu": {
+        "play": "Jugar",
+        "conf": "Configuración",
+        "pref": "Preferencias"
     },
-    "LOGIN": {
-        "TITLE": "Login",
-        "USER": "Usuario",
-        "PASS": "Contraseña",
-        "FORGOT": "Has olvidado la contraseña",
-        "REGISTER": "Crear cuenta",
-        "SIGIN": "Sig in"
+    "login": {
+        "title": "Login",
+        "user": "Usuario",
+        "pass": "Contraseña",
+        "forgot": "Has olvidado la contraseña?",
+        "register": "Crear cuenta",
+        "sigin": "Ingresar"
     }
 }
