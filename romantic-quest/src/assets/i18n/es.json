@@ -1,5 +1,15 @@
 {
-    "HOME": {
-        "HELLO": "hola"
+    "menu": {
+        "play": "Jugar",
+        "conf": "Configuración",
+        "pref": "Preferencias"
+    },
+    "login": {
+        "title": "Login",
+        "user": "Usuario",
+        "pass": "Contraseña",
+        "forgot": "Has olvidado la contraseña?",
+        "register": "Crear cuenta",
+        "sigin": "Ingresar"
     }
 }

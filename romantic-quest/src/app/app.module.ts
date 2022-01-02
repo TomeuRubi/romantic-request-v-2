@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {

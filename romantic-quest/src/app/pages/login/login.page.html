@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'login.title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div>{{ 'HELLO' | translate:param }}</div>
+  <form [formGroup]="formControlLogin">
+    <ion-item lines="full">
+      <ion-label position="floating">{{ 'login.user' | translate }}</ion-label>
+      <ion-input type="text" required formsControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">{{ 'login.pass' | translate }}</ion-label>
+      <ion-input type="password" required formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" (click)="login()">{{ 'login.sigin' | translate }}</ion-button>
+        <a [routerLink]="['/forgot-password']" class="small-text">{{ 'login.forgot' | translate }}</a>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
