@@ -11,5 +11,13 @@
         "forgot": "Has olvidado la contraseña?",
         "register": "Crear cuenta",
         "sigin": "Ingresar"
+    },
+    "selection": {
+        "player1": "Player 1",
+        "player2": "Player 2",
+        "name1": "Name",
+        "name2": "Name",
+        "gender": "Gender",
+        "options": "Options"
     }
 }
