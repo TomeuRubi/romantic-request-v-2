@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
     try {
       //const res = await this.authService.login(this.formControlLogin.value);
       await loading.dismiss();        
-      this.router.navigateByUrl('/main', { replaceUrl: true });
+      this.router.navigateByUrl('/selection', { replaceUrl: true });
     } catch(err) {
       await loading.dismiss();
         const alert = await this.alertController.create({
