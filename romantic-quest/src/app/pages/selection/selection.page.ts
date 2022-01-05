@@ -11,6 +11,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 export class SelectionPage implements OnInit {
   public formControlPlayer1: FormGroup;
   public formControlPlayer2: FormGroup;
+  public formControlOptions: FormGroup;
 
   constructor(
     public fb: FormBuilder,
@@ -26,6 +27,10 @@ export class SelectionPage implements OnInit {
     this.formControlPlayer2 = this.fb.group({
       "username": new FormControl('', Validators.required),
       "gendre": new FormControl('', Validators.required)
+    });
+    this.formControlOptions = this.fb.group({
+      "maze": new FormControl('', Validators.required),
+      "time": new FormControl('', Validators.required)
     });
    }
 
