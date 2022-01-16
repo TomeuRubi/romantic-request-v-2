@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formControlLogin">
+  <form [formGroup]="formControlLogin" (ngSubmit)="login()">
     <ion-item lines="full">
       <ion-label position="floating">{{ 'login.user' | translate }}</ion-label>
-      <ion-input type="text" required formsControlName="username"></ion-input>
+      <ion-input type="text" required formControlName="username"></ion-input>
     </ion-item>
 
     <ion-item lines="full">
@@ -21,7 +21,7 @@
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block" (click)="login()">{{ 'login.sigin' | translate }}</ion-button>
+        <ion-button type="submit" color="danger" expand="block">{{ 'login.sigin' | translate }}</ion-button>
         <a [routerLink]="['/forgot-password']" class="small-text">{{ 'login.forgot' | translate }}</a>
       </ion-col>
     </ion-row>

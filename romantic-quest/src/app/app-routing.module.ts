@@ -9,15 +9,20 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./auth/pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'main',
     loadChildren: () => import('./pages/main/main.module').then( m => m.MainPageModule)
-  },  {
+  },
+  {
     path: 'selection',
     loadChildren: () => import('./pages/selection/selection.module').then( m => m.SelectionPageModule)
+  },  {
+    path: 'in-game',
+    loadChildren: () => import('./game/pages/in-game/in-game.module').then( m => m.InGamePageModule)
   }
+
 
 
 ];
