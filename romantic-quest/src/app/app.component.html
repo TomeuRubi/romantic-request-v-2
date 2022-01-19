@@ -7,15 +7,15 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>
+        <ion-item button (click)="this.router.navigateByUrl('/selection', { replaceUrl: true })">
           <ion-icon name="heart" slot="start"></ion-icon>
           <ion-label>{{ 'menu.play' | translate }}</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item button (click)="this.router.navigateByUrl('/selection', { replaceUrl: true })">
           <ion-icon name="paper-plane" slot="start"></ion-icon>
-          <ion-label>{{ 'menu.pref' | translate }}</ion-label>
+          <ion-label >{{ 'menu.pref' | translate }}</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item button (click)="this.router.navigateByUrl('/selection', { replaceUrl: true })">
           <ion-icon name="construct" slot="start"></ion-icon>
           <ion-label>{{ 'menu.conf' | translate }}</ion-label>
         </ion-item>

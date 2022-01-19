@@ -22,5 +22,8 @@
         "maze": "Maze",
         "time": "Game duration",
         "play": "Play"
+    },
+    "card": {
+        "timeToLeft": "Time to left: "
     }
 }

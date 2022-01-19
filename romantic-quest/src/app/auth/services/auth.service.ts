@@ -11,7 +11,7 @@ export class AuthService {
 
   userFake: IUser = {
     username: 'TOLOMATOR',
-    email: 'a@a.com',
+    email: 'tomeu1224@gmail.com',
     password: 'test'
   }
 
@@ -27,7 +27,7 @@ export class AuthService {
     let toSend = false;
     if(JSON.stringify(user) === JSON.stringify(this.userFake)) {
       toSend = true
-    } else if(user.username === this.userFake.username) {
+    } else if(user.username === this.userFake.username || user.username === this.userFake.email) {
       toSend = true
     }
     return of (toSend).pipe(delay(1000));

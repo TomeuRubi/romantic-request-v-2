@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inGame</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  {{ playerName }}
+  <div class="contenido">
+    <ion-grid >
+      <ion-row>
+        <ion-col>
+          <app-level-counter class="app-level-counter" [level]="level" [stars]="stars">
+          </app-level-counter>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <app-card *ngIf="showCard" id="card" [card]="card">
+    </app-card>
+  </div>
 </ion-content>
+<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab-button color="danger" (click)="nextTurn()">
+    <ion-icon name="play-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

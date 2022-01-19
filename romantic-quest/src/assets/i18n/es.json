@@ -22,5 +22,8 @@
         "maze": "Baraja",
         "time": "Duración de la partida",
         "play": "Jugar"
+    },
+    "card": {
+        "timeToLeft": "Tiempo restante: "
     }
 }

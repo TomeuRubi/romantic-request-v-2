@@ -1,0 +1,17 @@
+<div>
+  <ion-grid id="contenedor">
+    <ion-row id="starsRow">
+      <ion-col *ngFor="let star of stars">
+        <div id="heartCol">
+          <ion-icon *ngIf="star" name="heart" color="danger"></ion-icon>
+          <ion-icon *ngIf="!star" name="heart-outline" color="danger"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-progress-bar color="danger" [value]="level"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

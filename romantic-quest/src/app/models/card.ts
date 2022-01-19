@@ -1,11 +1,6 @@
-export class Card { 
+export interface Card { 
     cardName: string;
-  
-    constructor(cardName:string) { 
-       this.cardName = cardName;
-    }  
- 
-    disp():void { 
-       console.log("Card is  :   "+this.cardName);
-    } 
+    cardDescription: string;
+    cardCategory: string;
+    time: number;
  }

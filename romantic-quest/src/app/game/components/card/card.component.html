@@ -1,0 +1,26 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{card.cardCategory}}</ion-card-subtitle>
+    <ion-card-title>{{card.cardName}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      {{card.cardDescription}}
+    </ion-item>
+    <div *ngIf="isCountDown" (click)="play()">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            {{ 'card.timeToLeft' | translate }}
+          </ion-col>
+          <ion-col size="2">
+            {{ timeToLeft }}
+          </ion-col>
+          <ion-col size="4">
+            <ion-icon end name="alarm" ></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card-content>
+</ion-card>

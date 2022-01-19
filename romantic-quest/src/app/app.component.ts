@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
@@ -8,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   constructor(
+    public router: Router,
     public translate: TranslateService,
     private menu: MenuController) {
     this.translate.addLangs(['es', 'en']);
