@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-list>
+    <ion-list-header> Recent Conversations </ion-list-header>
+
+    <ion-item *ngFor="let card of playerCards$ | async">
+      <ion-avatar slot="start">
+        <img src="" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{card.type}}</h2>
+        <h3>{{card.cardName}}</h3>
+        <p>{{card.cardDescription}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

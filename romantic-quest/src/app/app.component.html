@@ -19,6 +19,14 @@
           <ion-icon name="construct" slot="start"></ion-icon>
           <ion-label>{{ 'menu.conf' | translate }}</ion-label>
         </ion-item>
+        <ion-item button (click)="this.router.navigateByUrl('/deck-menu', { replaceUrl: true })">
+          <ion-icon name="construct" slot="start"></ion-icon>
+          <ion-label>{{ 'menu.deck' | translate }}</ion-label>
+        </ion-item>
+        <ion-item button (click)="this.router.navigateByUrl('/card-menu', { replaceUrl: true })">
+          <ion-icon name="construct" slot="start"></ion-icon>
+          <ion-label>{{ 'menu.card' | translate }}</ion-label>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

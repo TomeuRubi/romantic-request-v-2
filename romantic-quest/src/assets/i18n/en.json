@@ -2,7 +2,9 @@
     "menu": {
         "play": "Jugar",
         "conf": "Configuración",
-        "pref": "Preferencias"
+        "pref": "Preferencias",
+        "deck": "Decks",
+        "card": "Cards"
     },
     "login": {
         "title": "Login",
