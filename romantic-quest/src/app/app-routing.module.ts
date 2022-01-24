@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'deck-menu',
     loadChildren: () => import('./pages/deck-menu/deck-menu.module').then( m => m.DeckMenuPageModule)
+  },
+  {
+    path: 'card-form',
+    loadChildren: () => import('./card/pages/card-form/card-form.module').then( m => m.CardFormPageModule)
   }
 
 

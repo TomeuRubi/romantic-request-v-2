@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Card } from '../models/card';
-import { IUser } from '../models/IUser';
+import { Card } from '../../models/card';
+import { IUser } from '../../models/IUser';
 
 @Injectable({
   providedIn: 'root'
