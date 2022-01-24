@@ -10,9 +10,9 @@
   <ion-list>
     <ion-list-header> Tus colección de pruebas </ion-list-header>
 
-    <ion-item *ngFor="let card of playerCards$ | async">
+    <ion-item *ngFor="let card of playerCards$ | async" (click)="this.router.navigateByUrl('/card-form', { replaceUrl: true })">
       <ion-avatar slot="start">
-        <img src="" />
+        <img src="assets/cards/icons8-chili-pepper-100.png" />
       </ion-avatar>
       <ion-label>
         <h2>{{card.type}}</h2>

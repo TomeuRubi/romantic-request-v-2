@@ -18,21 +18,22 @@ const routes: Routes = [
   {
     path: 'selection',
     loadChildren: () => import('./pages/selection/selection.module').then( m => m.SelectionPageModule)
-  },  {
+  },
+  {
     path: 'in-game',
     loadChildren: () => import('./game/pages/in-game/in-game.module').then( m => m.InGamePageModule)
   },
   {
     path: 'card-menu',
-    loadChildren: () => import('./pages/card-menu/card-menu.module').then( m => m.CardMenuPageModule)
+    loadChildren: () => import('./card/pages/card-menu/card-menu.module').then( m => m.CardMenuPageModule)
+  },  
+  {
+    path: 'card-form',
+    loadChildren: () => import('./card/pages/card-form/card-form.module').then( m => m.CardFormPageModule)
   },
   {
     path: 'deck-menu',
     loadChildren: () => import('./pages/deck-menu/deck-menu.module').then( m => m.DeckMenuPageModule)
-  },
-  {
-    path: 'card-form',
-    loadChildren: () => import('./card/pages/card-form/card-form.module').then( m => m.CardFormPageModule)
   }
 
 
