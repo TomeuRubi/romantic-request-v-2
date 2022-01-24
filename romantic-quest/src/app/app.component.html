@@ -7,7 +7,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item button (click)="this.router.navigateByUrl('/selection', { replaceUrl: true })">
+        <ion-item button [routerLink]="['/selection']">
           <ion-icon name="heart" slot="start"></ion-icon>
           <ion-label>{{ 'menu.play' | translate }}</ion-label>
         </ion-item>
@@ -30,16 +30,6 @@
       </ion-list>
     </ion-content>
   </ion-menu>
-  
-  <div class="ion-page" id="main-content">
-    <ion-header *ngIf='isAuthenticated()'>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Inbox</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-router-outlet></ion-router-outlet>
-  </div>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

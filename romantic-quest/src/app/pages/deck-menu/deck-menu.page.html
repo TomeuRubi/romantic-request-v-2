@@ -1,6 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestor de barajas</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-list>
-    <ion-list-header> Recent Conversations </ion-list-header>
+    <ion-list-header> Tu colección de barajas </ion-list-header>
 
     <ion-item *ngFor="let deck of decks">
       <ion-avatar slot="start">

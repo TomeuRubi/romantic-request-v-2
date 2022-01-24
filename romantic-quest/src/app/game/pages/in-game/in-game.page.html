@@ -1,17 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <app-level-counter slot="end" class="app-level-counter" [level]="level" [stars]="stars">
+    </app-level-counter>
+    
+    
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <div class="contenido">
-    <ion-grid >
-      <ion-row>
-        <ion-col>
-          <app-level-counter class="app-level-counter" [level]="level" [stars]="stars">
-          </app-level-counter>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <app-card *ngIf="showCard" id="card" [card]="card">
-    </app-card>
-  </div>
+  <app-card *ngIf="showCard" id="card" [card]="card">
+  </app-card>
 </ion-content>
 <ion-fab horizontal="end" vertical="bottom" slot="fixed">
   <ion-fab-button color="danger" (click)="nextTurn()">
