@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Card } from '../../models/card';
@@ -8,29 +9,38 @@ import { IUser } from '../../models/IUser';
 })
 export class CardService {
 
+  private cardApi: string = 'http://localhost:10010/api/card';
+
   private defaultCards: Array<Card> = [
     {
-      cardName: "Nalgadas",
-      cardDescription: "Azota a {{jugador}} 10 veces",
-      cardCategory: "BDSM",
+      id: 1,
+      name: "Nalgadas",
+      description: "Azota a {{jugador}} 10 veces",
+      category: "BDSM",
       time: 60
     }, {
-      cardName: "Acariciar",
-      cardDescription: "Acaricia los pechos de {{jugador}} durante {{tiempo}} segundos",
-      cardCategory: "BDSM",
+      id: 2,
+      name: "Acariciar",
+      description: "Acaricia los pechos de {{jugador}} durante {{tiempo}} segundos",
+      category: "BDSM",
       time: 30
     }, {
-      cardName: "Masturbacion",
-      cardDescription: "Masturba a {{jugador}} durante {{tiempo}} segundos",
-      cardCategory: "BDSM",
+      id: 3,
+      name: "Masturbacion",
+      description: "Masturba a {{jugador}} durante {{tiempo}} segundos",
+      category: "BDSM",
       time: 40
     }];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   getUserCard(user: IUser): Observable<Array<Card>> {
-    return of(this.defaultCards);
+    return this.http.get<Card[]>(this.cardApi);
+  }
+
+  getCard(cardId: string): Observable<Card> {
+    return this.http.get<Card>(this.cardApi+"/"+cardId);
   }
 
   getCards(user: IUser): Observable<Array<Card>> {

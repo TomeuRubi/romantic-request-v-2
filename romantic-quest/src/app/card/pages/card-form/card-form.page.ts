@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { Card } from 'src/app/models/card';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-card-form',
@@ -7,10 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardFormPage implements OnInit {
 
-  constructor() { }
+  private cardId: string;
+  private card$: Observable<Card>;
+  private ready: boolean;
+
+  constructor(
+    private activatedroute: ActivatedRoute,
+    private cardService: CardService,
+    private loadingController: LoadingController,
+    private alert: AlertController) { }
 
   ngOnInit() {
-    
+    this.ready = false;
+    this.loadingController.create();
+    this.cardId = this.activatedroute.snapshot.paramMap.get("id");
+    this.card$ = this.cardService.getCard(this.cardId);
+    this.card$.subscribe(
+      (success) => {
+      this.loadingController.dismiss();
+      this.ready=true;
+      },
+      (error) => {
+        let alert = this.alert.create({
+          message: error
+        });
+        alert.;
+      }
+    );
   }
+
+
 
 }

@@ -1,11 +1,11 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>{{card.cardCategory}}</ion-card-subtitle>
-    <ion-card-title>{{card.cardName}}</ion-card-title>
+    <ion-card-subtitle>{{card.category.name}}</ion-card-subtitle>
+    <ion-card-title>{{card.name}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <ion-item>
-      {{card.cardDescription}}
+      {{card.description}}
     </ion-item>
     <div *ngIf="isCountDown" (click)="play()">
       <ion-grid>

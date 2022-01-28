@@ -8,15 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="ready">
     <img src="assets/cards/icons8-chili-pepper-100.png" />
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Madison, WI</ion-card-title>
+      <ion-card-subtitle>{{ card$.category.name | async }}</ion-card-subtitle>
+      <ion-card-title>{{ card$.name | async }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
-      Wisconsin Territory in 1836.
+      {{ card$.description | async }}
     </ion-card-content>
   </ion-card>
 </ion-content>

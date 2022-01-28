@@ -38,9 +38,10 @@ export class GameService {
 
   getNextCard(intensity: number): Card {
       return {
-        cardName: "Nalguear",
-        cardDescription: "Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.",
-        cardCategory: "BDSM",
+        id: 1,
+        name: "Nalguear",
+        description: "Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.",
+        category: "BDSM",
         time: 60
       };
   }

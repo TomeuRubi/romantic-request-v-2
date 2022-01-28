@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./card/pages/card-menu/card-menu.module').then( m => m.CardMenuPageModule)
   },  
   {
-    path: 'card-form',
+    path: 'card-form/:id',
     loadChildren: () => import('./card/pages/card-form/card-form.module').then( m => m.CardFormPageModule)
   },
   {
