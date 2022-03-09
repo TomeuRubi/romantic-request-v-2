@@ -32,11 +32,11 @@ export class CardFormPage implements OnInit {
       this.loadingController.dismiss();
       this.ready=true;
       },
-      (error) => {
-        let alert = this.alert.create({
+      async (error) => {
+        let alert = await this.alert.create({
           message: error
         });
-        alert.;
+        alert.present();
       }
     );
   }
