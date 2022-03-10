@@ -22,21 +22,26 @@ export class CardFormPage implements OnInit {
     private loadingController: LoadingController,
     private alert: AlertController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.ready = false;
-    this.loadingController.create();
+    let loadingC = await this.loadingController.create();
+    loadingC.present();
+    
     this.cardId = this.activatedroute.snapshot.paramMap.get("id");
     this.card$ = this.cardService.getCard(this.cardId);
     this.card$.subscribe(
       (success) => {
-      this.loadingController.dismiss();
-      this.ready=true;
+        loadingC.dismiss();
+        this.ready=true;
       },
-      (error) => {
-        let alert = this.alert.create({
-          message: error
+      async (error) => {
+        const alert = await this.alert.create({
+          header: 'Error',
+          message: error.message,
+          buttons: ['OK'],
         });
-        alert.;
+ 
+        alert.present();
       }
     );
   }

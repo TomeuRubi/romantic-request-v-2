@@ -11,11 +11,11 @@
   <ion-card *ngIf="ready">
     <img src="assets/cards/icons8-chili-pepper-100.png" />
     <ion-card-header>
-      <ion-card-subtitle>{{ card$.category.name | async }}</ion-card-subtitle>
-      <ion-card-title>{{ card$.name | async }}</ion-card-title>
+      <ion-card-subtitle>{{ (card$ | async)?.category.name }}</ion-card-subtitle>
+      <ion-card-title>{{ (card$ | async)?.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      {{ card$.description | async }}
+      {{ (card$ | async)?.description }}
     </ion-card-content>
   </ion-card>
 </ion-content>
