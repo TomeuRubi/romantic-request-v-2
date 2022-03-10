@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/models/card';
 import { CardService } from '../../services/card.service';
@@ -12,8 +13,12 @@ import { CardService } from '../../services/card.service';
 export class CardMenuPage implements OnInit {
 
   playerCards$: Observable<Card[]>
+  ready: boolean;
 
-  constructor(private cardService: CardService, private router: Router) {}
+  constructor(private cardService: CardService,
+    private router: Router,
+    private loadingController: LoadingController,
+    private alert: AlertController) { }
 
   ngOnInit() {
     this.playerCards$ = this.cardService.getUserCard({
@@ -21,6 +26,18 @@ export class CardMenuPage implements OnInit {
       email: "pepe@pepe.com",
       password: "1234"
     });
+    this.playerCards$.subscribe(
+      (success) => {
+        this.loadingController.dismiss();
+        this.ready = true;
+      },
+      async (error) => {
+        let alert = await this.alert.create({
+          message: error.message
+        });
+        alert.present();
+      }
+    );
   }
 
 }
