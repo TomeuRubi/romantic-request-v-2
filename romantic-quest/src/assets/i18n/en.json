@@ -27,5 +27,10 @@
     },
     "card": {
         "timeToLeft": "Time to left: "
+    },
+    "carPopMenu": {
+        "newCard": "New Card",
+        "downloadCard": "Download Card"
+
     }
 }

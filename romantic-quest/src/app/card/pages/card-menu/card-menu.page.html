@@ -4,9 +4,15 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Gestor de pruebas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onPopoverClick($event)">
+        <ion-icon id="nested-button" slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+
   <ion-list>
     <ion-list-header> Tus colección de pruebas </ion-list-header>
 

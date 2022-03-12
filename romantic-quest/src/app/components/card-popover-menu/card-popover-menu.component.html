@@ -1,0 +1,13 @@
+  <ion-content>
+    <ion-list>
+      <ion-item button="true" detail="false" (click)="this.router.navigateByUrl('/card-menu/card-form', { replaceUrl: true })">
+        <ion-label>{{ 'carPopMenu.newCard' | translate }}</ion-label>
+      </ion-item>
+      <ion-item button="true" detail="false" (click)="this.router.navigateByUrl('/card-menu/card-form', { replaceUrl: true })">
+        <ion-label>{{ 'carPopMenu.downloadCar' | translate }}</ion-label>
+      </ion-item>
+      <ion-item button="true" detail="true" id="nested-trigger">
+        <ion-label>{{ 'carPopMenu.pref' | translate }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>

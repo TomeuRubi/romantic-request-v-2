@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, PopoverController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { CardPopoverMenuComponent } from 'src/app/components/card-popover-menu/card-popover-menu.component';
 import { Card } from 'src/app/models/card';
 import { CardService } from '../../services/card.service';
 
@@ -18,9 +19,11 @@ export class CardMenuPage implements OnInit {
   constructor(private cardService: CardService,
     private router: Router,
     private loadingController: LoadingController,
-    private alert: AlertController) { }
+    private alert: AlertController,
+    private popOver: PopoverController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loadingC = await this.loadingController.create();
     this.playerCards$ = this.cardService.getUserCard({
       username: "pepe",
       email: "pepe@pepe.com",
@@ -28,16 +31,25 @@ export class CardMenuPage implements OnInit {
     });
     this.playerCards$.subscribe(
       (success) => {
-        this.loadingController.dismiss();
+        loadingC.dismiss();
         this.ready = true;
       },
       async (error) => {
+        loadingC.dismiss();
         let alert = await this.alert.create({
           message: error.message
         });
         alert.present();
       }
     );
+  }
+
+  async onPopoverClick(event: any){
+    const pop = await this.popOver.create({
+      component: CardPopoverMenuComponent,
+      event: event
+    })
+    return await pop.present();
   }
 
 }

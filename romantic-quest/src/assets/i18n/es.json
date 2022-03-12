@@ -27,5 +27,10 @@
     },
     "card": {
         "timeToLeft": "Tiempo restante: "
+    },
+    "carPopMenu": {
+        "newCard": "Crear Carta",
+        "downloadCard": "Descargar Carta"
+
     }
 }

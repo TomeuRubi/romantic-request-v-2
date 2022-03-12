@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: CardMenuPage
-  }
+  },
+  {
+    path: 'card-form',
+    loadChildren: () => import('../card-form/card-form.module').then( m => m.CardFormPageModule)
+  },
 ];
 
 @NgModule({

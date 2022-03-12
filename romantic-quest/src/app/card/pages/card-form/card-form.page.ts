@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Card } from 'src/app/models/card';
 import { CardService } from '../../services/card.service';
 
@@ -26,24 +26,36 @@ export class CardFormPage implements OnInit {
     this.ready = false;
     let loadingC = await this.loadingController.create();
     loadingC.present();
-    
+
     this.cardId = this.activatedroute.snapshot.paramMap.get("id");
-    this.card$ = this.cardService.getCard(this.cardId);
-    this.card$.subscribe(
-      (success) => {
-        loadingC.dismiss();
-        this.ready=true;
-      },
-      async (error) => {
-        const alert = await this.alert.create({
-          header: 'Error',
-          message: error.message,
-          buttons: ['OK'],
-        });
- 
-        alert.present();
-      }
-    );
+    if (this.cardId) {
+      this.card$ = this.cardService.getCard(this.cardId);
+      this.card$.subscribe(
+        (success) => {
+          loadingC.dismiss();
+          this.ready = true;
+        },
+        async (error) => {
+          loadingC.dismiss();
+          const alert = await this.alert.create({
+            header: 'Error',
+            message: error.message,
+            buttons: ['OK'],
+          });
+
+          alert.present();
+        }
+      );
+    } else {
+      this.card$ = of({
+        id: null,
+        name: '',
+        description: '',
+        category: null,
+        time: null
+      });
+      loadingC.dismiss();
+    }
   }
 
 
