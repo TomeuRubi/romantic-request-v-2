@@ -28,6 +28,11 @@
     "card": {
         "timeToLeft": "Time to left: "
     },
+    "cardForm": {
+        "name": "Name",
+        "category": "Category",
+        "description": "Description"
+    },
     "carPopMenu": {
         "newCard": "New Card",
         "downloadCard": "Download Card"

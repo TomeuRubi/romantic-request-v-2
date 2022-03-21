@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
@@ -16,6 +17,9 @@ export class CardFormPage implements OnInit {
   private card$: Observable<Card>;
   private ready: boolean;
 
+  public formControlCard: FormGroup;
+
+
   constructor(
     private activatedroute: ActivatedRoute,
     private cardService: CardService,
@@ -23,6 +27,14 @@ export class CardFormPage implements OnInit {
     private alert: AlertController) { }
 
   async ngOnInit() {
+    this.formControlCard = new FormGroup({
+      "id": new FormControl(null, Validators.required),
+      "name": new FormControl('', Validators.required),
+      "category": new FormControl('', Validators.required),
+      "description": new FormControl('', Validators.required),
+      "time": new FormControl(null, Validators.required),
+      "dateCreation": new FormControl(new Date(), Validators.required),
+    });
     this.ready = false;
     let loadingC = await this.loadingController.create();
     loadingC.present();
@@ -42,7 +54,6 @@ export class CardFormPage implements OnInit {
             message: error.message,
             buttons: ['OK'],
           });
-
           alert.present();
         }
       );
@@ -54,10 +65,30 @@ export class CardFormPage implements OnInit {
         category: null,
         time: null
       });
-      loadingC.dismiss();
+      this.card$.subscribe(
+        (success) => {
+          loadingC.dismiss();
+          this.ready = true;    
+        }
+      );
+      
     }
   }
 
-
+  save() {
+    let card: Card = this.formControlCard.value;
+    this.cardService.saveCard(card).subscribe(
+      (success) => {
+        this.ready = true;
+      },
+      async (error) => {
+        const alert = await this.alert.create({
+          header: 'Error',
+          message: error.message,
+          buttons: ['OK'],
+        });
+        alert.present();
+      });
+  }
 
 }

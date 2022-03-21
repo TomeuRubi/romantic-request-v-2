@@ -43,6 +43,10 @@ export class CardService {
     return this.http.get<Card>(this.cardApi+"/"+cardId);
   }
 
+  saveCard(card: Card): Observable<any> {
+    return this.http.post(this.cardApi, card);
+  }
+
   getCards(user: IUser): Observable<Array<Card>> {
     return of(this.defaultCards);
   }

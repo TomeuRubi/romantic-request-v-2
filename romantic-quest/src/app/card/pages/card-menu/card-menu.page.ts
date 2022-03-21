@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, PopoverController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { CardPopoverMenuComponent } from 'src/app/components/card-popover-menu/card-popover-menu.component';
 import { Card } from 'src/app/models/card';
+import { CardPopoverMenuComponent } from '../../card-popover-menu/card-popover-menu.component';
 import { CardService } from '../../services/card.service';
 
 @Component({

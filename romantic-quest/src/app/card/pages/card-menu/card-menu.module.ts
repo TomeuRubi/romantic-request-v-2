@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { CardMenuPageRoutingModule } from './card-menu-routing.module';
 
 import { CardMenuPage } from './card-menu.page';
-import { CardPopoverMenuComponent } from 'src/app/components/card-popover-menu/card-popover-menu.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { CardPopoverMenuComponent } from '../../card-popover-menu/card-popover-menu.component';
 
 @NgModule({
   imports: [
