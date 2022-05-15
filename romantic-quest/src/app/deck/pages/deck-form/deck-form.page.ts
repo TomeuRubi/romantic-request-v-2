@@ -1,44 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
-import { Card } from 'src/app/models/card';
+import { DeckService } from 'src/app/deck/services/deck.service';
+import { Deck } from 'src/app/models/deck';
 import { Category } from 'src/app/models/category';
-import { CardService } from '../../services/card.service';
-import { CategoryService } from '../../services/category.service';
+import { CategoryService } from 'src/app/card/services/category.service';
 
 @Component({
-  selector: 'app-card-form',
-  templateUrl: './card-form.page.html',
-  styleUrls: ['./card-form.page.scss'],
+  selector: 'app-deck-form',
+  templateUrl: './deck-form.page.html',
+  styleUrls: ['./deck-form.page.scss'],
 })
-export class CardFormPage implements OnInit {
+export class DeckFormPage implements OnInit {
 
-  private cardId: string;
-  private card$: Observable<Card>;
+  private deckId: string;
+  private deck$: Observable<Deck>;
   private categories$: Observable<Array<Category>>;
-  private card: Card;
+  private deck: Deck;
   private ready: boolean;
   private categoryList: Category[] = [];
-
-  //public formControlCard: FormGroup;
 
 
   constructor(
     private activatedroute: ActivatedRoute,
-    private cardService: CardService,
+    private deckService: DeckService,
     private categoryService: CategoryService,
     private loadingController: LoadingController,
     private alert: AlertController) { }
 
   async ngOnInit() {
     this.ready = false;
-    this.card = new Card({
+    this.deck = {
       id: null,
       name: "",
-      description: ""
-    });
+      description: "",
+      category: null,
+      cards: []
+    };
     let loadingC = await this.loadingController.create();
     loadingC.present();
 
@@ -46,7 +45,7 @@ export class CardFormPage implements OnInit {
     this.categories$.subscribe(
       (categories) => {
         this.categoryList = categories;
-        this.card.category = this.categoryList[0];
+        this.deck.category = this.categoryList[0];
       },
       async (error) => {
         loadingC.dismiss();
@@ -58,19 +57,19 @@ export class CardFormPage implements OnInit {
         this.categoryService.getTestCategories().subscribe(
           (categories) => {
             this.categoryList = categories;
-            this.card.category = this.categoryList[0];
+            this.deck.category = this.categoryList[0];
           }
         );
         alert.present();
       }
     );
 
-    this.cardId = this.activatedroute.snapshot.paramMap.get("id");
-    if (this.cardId) {
-      this.card$ = this.cardService.getCard(this.cardId);
-      this.card$.subscribe(
-        (card) => {
-          this.card = card;
+    this.deckId = this.activatedroute.snapshot.paramMap.get("id");
+    if (this.deckId) {
+      this.deck$ = this.deckService.getDeck(this.deckId);
+      this.deck$.subscribe(
+        (deck) => {
+          this.deck = deck;
           loadingC.dismiss();
           this.ready = true;
         },
@@ -103,9 +102,9 @@ export class CardFormPage implements OnInit {
   }
 
   save() {
-//    card.category = new Category();
-//    card.category.id = this.formControlCard.category;
-    this.cardService.saveCard(this.card).subscribe(
+//    deck.category = new Category();
+//    deck.category.id = this.formControlDeck.category;
+    this.deckService.saveDeck(this.deck).subscribe(
       (success) => {
         this.ready = true;
       },

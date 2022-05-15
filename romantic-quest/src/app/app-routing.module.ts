@@ -33,9 +33,12 @@ const routes: Routes = [
   },
   {
     path: 'deck-menu',
-    loadChildren: () => import('./pages/deck-menu/deck-menu.module').then( m => m.DeckMenuPageModule)
+    loadChildren: () => import('./deck/pages/deck-menu/deck-menu.module').then( m => m.DeckMenuPageModule)
+  },
+  {
+    path: 'deck-form/:id',
+    loadChildren: () => import('./deck/pages/deck-form/deck-form.module').then( m => m.DeckFormPageModule)
   }
-
 
 
 ];

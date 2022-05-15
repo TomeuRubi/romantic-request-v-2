@@ -9,19 +9,19 @@
 
 <ion-content>
     <ion-card *ngIf="ready">
-      <img src="assets/cards/icons8-chili-pepper-100.png" />
+      <img src="assets/decks/icons8-chili-pepper-100.png" />
       <ion-card-header>
         <ion-card-subtitle>
           <ion-item lines="full">
-            <ion-label position="floating">{{ 'cardForm.name' | translate }}</ion-label>
-            <ion-input type="text" name="name" ngDefaultControl required [(ngModel)]="card.name"></ion-input>
+            <ion-label position="floating">{{ 'deckForm.name' | translate }}</ion-label>
+            <ion-input type="text" name="name" ngDefaultControl required [(ngModel)]="deck.name"></ion-input>
           </ion-item>
         </ion-card-subtitle>
         <ion-card-title>
           <ion-item lines="full">
-            <ion-label position="floating">{{ 'cardForm.category' | translate }}</ion-label>
-            <ion-select [compareWith]="compareWith" *ngIf="this.card.category && this.categoryList.length>0" 
-              name="categori" [(ngModel)]="card.category" ngDefaultControl>
+            <ion-label position="floating">{{ 'deckForm.category' | translate }}</ion-label>
+            <ion-select [compareWith]="compareWith" *ngIf="this.deck.category && this.categoryList.length>0" 
+              name="categori" [(ngModel)]="deck.category" ngDefaultControl>
               <ion-select-option  *ngFor="let c of categoryList" [value]="c">{{c.name}}</ion-select-option>
             </ion-select>
           </ion-item>
@@ -29,8 +29,8 @@
       </ion-card-header>
       <ion-card-content>
         <ion-item lines="full">
-          <ion-label position="floating">{{ 'cardForm.description' | translate }}</ion-label>
-          <ion-input type="text" name="desc" ngDefaultControl required [(ngModel)]="card.description"></ion-input>
+          <ion-label position="floating">{{ 'deckForm.description' | translate }}</ion-label>
+          <ion-input type="text" name="desc" ngDefaultControl required [(ngModel)]="deck.description"></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestor de barajas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onPopoverClick($event)">
+        <ion-icon id="nested-button" slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+    <ion-list-header> Tus barajas de pruebas </ion-list-header>
+
+    <ion-item *ngFor="let deck of playerDecks$ | async" [routerLink]="['/deck-form', deck.id]">
+      <ion-avatar slot="start">
+        <img src="assets/decks/icons8-chili-pepper-100.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{deck.category.name}}</h2>
+        <h3>{{deck.name}}</h3>
+        <p>{{deck.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

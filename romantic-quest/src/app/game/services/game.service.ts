@@ -41,7 +41,7 @@ export class GameService {
         id: 1,
         name: "Nalguear",
         description: "Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.",
-        category: "BDSM",
+        category: { id: 1, name: "BDSM" },
         time: 60
       };
   }

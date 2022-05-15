@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DeckMenuPage } from './deck-menu.page';
+import { DeckFormPage } from './deck-form.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DeckMenuPage
+    component: DeckFormPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DeckMenuPageRoutingModule {}
+export class DeckFormPageRoutingModule {}
